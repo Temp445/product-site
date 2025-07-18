@@ -1,10 +1,12 @@
-import {NextConfig} from 'next';
+
 import createNextIntlPlugin from 'next-intl/plugin';
- 
+import type { NextConfig } from 'next';
+
+const withNextIntl = createNextIntlPlugin();
+
 const nextConfig: NextConfig = {
-     basePath: '/blog',
+  basePath: '/blog',
   trailingSlash: true,
 };
- 
-const withNextIntl = createNextIntlPlugin();
+
 export default withNextIntl(nextConfig);
