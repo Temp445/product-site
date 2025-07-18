@@ -17,7 +17,7 @@ const Navbar: FC = () => {
   return (
     <header className="bg-white w-full z-[20]">
       <nav className="container mx-auto flex items-center justify-between px-4 md:px-6 py-3">
-        <Link href="/68789b738e88e69dea3a892f" className="text-xl font-bold text-blue-500 tracking-wide">
+        <Link href="/" className="text-xl font-bold text-blue-500 tracking-wide">
           TechNova
         </Link>
 

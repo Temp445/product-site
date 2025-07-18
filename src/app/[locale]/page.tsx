@@ -33,7 +33,9 @@ export default function Home() {
   }, []);
   return (
     <div className="bg-indigo-100 mx-auto px-6 py-16">
+
        <div className="grid md:grid-cols-2 gap-12 items-center container mx-auto px-10">
+
      {features.map(feature => (
         <div key={feature._id} >
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
@@ -45,16 +47,19 @@ export default function Home() {
 )}
 
 </div>
-<Link href="/features" className=''> features </Link>
+   <Link href="/features" className='text-xl text-black w-10 h-10 border border-black underline p-1 '> features </Link>
+
         </div>
+
      ))}
+
      
         <div className="relative group shadow-lg rounded-xl overflow-hidden">
-          {/* <img
+          <img
             src="https://www.fullstackgurupune.com/storage/blog_icons/1b94834e60fd7bc72ea07d7a9a6703de.jpeg"
             alt="Web development"
             className="object-cover w-full h-96 transition-transform duration-500 group-hover:scale-105"
-          /> */}
+          />
         </div>
       </div>
     </div>
