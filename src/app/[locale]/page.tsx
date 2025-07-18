@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useLocale } from 'next-intl';
+import Link from 'next/link';
 
 interface LocalizedString {
   en: string;
@@ -44,16 +45,16 @@ export default function Home() {
 )}
 
 </div>
-
+<Link href="/features" className=''> features </Link>
         </div>
      ))}
      
         <div className="relative group shadow-lg rounded-xl overflow-hidden">
-          <img
+          {/* <img
             src="https://www.fullstackgurupune.com/storage/blog_icons/1b94834e60fd7bc72ea07d7a9a6703de.jpeg"
             alt="Web development"
             className="object-cover w-full h-96 transition-transform duration-500 group-hover:scale-105"
-          />
+          /> */}
         </div>
       </div>
     </div>
