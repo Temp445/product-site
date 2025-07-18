@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
+import Navbar from '@/components/Navbar';
 
 interface LocalizedString {
   en: string;
@@ -31,8 +32,11 @@ export default function Home() {
         console.error('Error fetching features:', err);
       });
   }, []);
+  
   return (
-    <div className="bg-indigo-100 mx-auto px-6 py-16">
+  <div>
+    <Navbar/>
+      <div className="bg-indigo-100 mx-auto px-6 py-16">
 
        <div className="grid md:grid-cols-2 gap-12 items-center container mx-auto px-10">
 
@@ -63,5 +67,6 @@ export default function Home() {
         </div>
       </div>
     </div>
+  </div>
   );
 }
