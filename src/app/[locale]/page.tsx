@@ -7,6 +7,8 @@ import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || process.env.NEXT_PUBLIC_API_URL ;
+
 interface LocalizedString {
   en: string;
   hi?: string;
@@ -24,7 +26,7 @@ export default function Home() {
   const translate = (text?: LocalizedString) => text?.[locale] ?? text?.en ?? "";
 
   useEffect(() => {
-    axios.get('/api/features')
+   axios.get(`${basePath}/api/features`)
       .then((res) => {
         setFeatures(res.data);
       })
@@ -32,7 +34,7 @@ export default function Home() {
         console.error('Error fetching features:', err);
       });
   }, []);
-  
+
   return (
   <div>
     <Navbar/>
