@@ -1,74 +1,36 @@
+import Navbar from "@/components/Navbar";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
 
-'use client'
-
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useLocale } from 'next-intl';
-import Link from 'next/link';
-import Navbar from '@/components/Navbar';
-
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || process.env.NEXT_PUBLIC_API_URL ;
-
-interface LocalizedString {
-  en: string;
-  hi?: string;
-  [key: string]: string | undefined; 
-}
-type Product = {
-  _id: string;
-  name?: LocalizedString;
-  features?: LocalizedString;
-};
-
-export default function Home() {
-  const [features, setFeatures] = useState<Product[]>([]);
-  const locale = useLocale();
-  const translate = (text?: LocalizedString) => text?.[locale] ?? text?.en ?? "";
-
-  useEffect(() => {
-   axios.get(`${basePath}/api/features`)
-      .then((res) => {
-        setFeatures(res.data);
-      })
-      .catch((err) => {
-        console.error('Error fetching features:', err);
-      });
-  }, []);
-
+export default function ProductPage() {
+  const t = useTranslations('home')
   return (
-  <div>
-    <Navbar/>
+<div>
+  <Navbar/>
       <div className="bg-indigo-100 mx-auto px-6 py-16">
-
-       <div className="grid md:grid-cols-2 gap-12 items-center container mx-auto px-10">
-
-     {features.map(feature => (
-        <div key={feature._id} >
+      <div className="grid md:grid-cols-2 gap-12 items-center container mx-auto px-10">
+        <div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
-         {translate(feature.name)}
+            {t('title')}
           </h1>
-    <div className="flex flex-col gap-5">
-   {translate(feature.features)?.split('.').map((line, i) =>
-  line.trim() ? <p key={i}>{line.trim()}.</p> : null
-)}
-
-</div>
-   <Link href="/features" className='text-xl text-black w-10 h-10 border border-black underline p-1 '> features </Link>
-
+    <p className="text-lg text-black leading-relaxed">
+     {t('p1')}
+     <br />
+     <br />
+     {t('p2')}
+    </p>
+    <Link href="/features" className="p-1 border">Features</Link>
         </div>
 
-     ))}
-
-     
         <div className="relative group shadow-lg rounded-xl overflow-hidden">
           <img
             src="https://www.fullstackgurupune.com/storage/blog_icons/1b94834e60fd7bc72ea07d7a9a6703de.jpeg"
-            alt="Web development"
+            alt="Web development illustration"
             className="object-cover w-full h-96 transition-transform duration-500 group-hover:scale-105"
           />
         </div>
       </div>
     </div>
-  </div>
+</div>
   );
 }

@@ -1,5 +1,7 @@
 {
   "home": {
-    "temp": "temp"
+    "title": "Web Development",
+    "p1": "We build fast, responsive, and scalable web applications tailored to your business needs.",
+    "p2": "  Our services include frontend development with React / Next.js, backend with Node.js / Express, and database integration with MongoDB or PostgreSQL."
   }
 }
