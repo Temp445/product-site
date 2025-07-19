@@ -4,8 +4,8 @@ import type { NextConfig } from 'next';
 const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
-  basePath: '/blog',
-  assetPrefix: '/blog/',
+  basePath: '/web-development',
+  assetPrefix: '/web-development/',
   trailingSlash: true,
 };
 
