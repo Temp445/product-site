@@ -1,10 +1,12 @@
 import createNextIntlPlugin from 'next-intl/plugin';
 import type { NextConfig } from 'next';
 
-const withNextIntl = createNextIntlPlugin();
+const withNextIntl = createNextIntlPlugin({
+    
+});
 
 const nextConfig: NextConfig = {
-  basePath: '/web-development',
+//   basePath: '/web-development',
   assetPrefix: '/web-development/',
   trailingSlash: true,
 };
