@@ -21,14 +21,14 @@ export default function ProductPage() {
     </p>
     <Link href="/features" className="p-1 border">Features</Link>
         </div>
-{/* 
+
         <div className="relative group shadow-lg rounded-xl overflow-hidden">
           <img
             src="https://www.fullstackgurupune.com/storage/blog_icons/1b94834e60fd7bc72ea07d7a9a6703de.jpeg"
             alt="Web development illustration"
             className="object-cover w-full h-96 transition-transform duration-500 group-hover:scale-105"
           />
-        </div> */}
+        </div>
       </div>
     </div>
 </div>
