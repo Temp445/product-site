@@ -1,9 +1,10 @@
 import Navbar from "@/components/Navbar";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-
+import { useLocale } from "next-intl";
 export default function ProductPage() {
-  const t = useTranslations('home')
+  const t = useTranslations('home');
+  const locale = useLocale();
   return (
 <div>
   <Navbar/>
@@ -20,7 +21,7 @@ export default function ProductPage() {
      {t('p2')}
     </p>
     <Link href="/features" className="p-1 border">Features</Link>
-    <Link href="https://main-sites.netlify.app" className="p-1 border">Main Page</Link>
+    <Link href={`https://main-sites.netlify.app/${locale}`} className="p-1 border">Main Page</Link>    
         </div>
 
         <div className="relative group shadow-lg rounded-xl overflow-hidden">

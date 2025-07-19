@@ -14,6 +14,9 @@ const Navbar: FC = () => {
     { code: 'hi', label: 'हिन्दी' },
   ];
 
+  // Remove the current locale prefix from the pathname
+  const strippedPath = pathname.replace(new RegExp(`^/${currentLocale}`), '') || '/';
+
   return (
     <header className="bg-white w-full z-[20]">
       <nav className="container mx-auto flex items-center justify-between px-4 md:px-6 py-3">
@@ -25,7 +28,7 @@ const Navbar: FC = () => {
           {languages.map((lang) => (
             <Link
               key={lang.code}
-              href={pathname}
+              href={strippedPath}
               locale={lang.code}
               className={`px-3 py-1 text-sm rounded-md transition ${
                 currentLocale === lang.code

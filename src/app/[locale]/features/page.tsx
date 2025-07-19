@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
 import Navbar from '@/components/Navbar';
 
@@ -20,7 +19,6 @@ type Product = {
 };
 
 const Products = () => {
-    const t = useTranslations('Products');
     const [products, setProducts] = useState<Product[]>([]);
     const locale = useLocale();
     const translate = (text?: LocalizedString) => text?.[locale] ?? text?.en ?? "";
