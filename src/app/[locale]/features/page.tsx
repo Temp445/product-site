@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { useLocale } from 'next-intl';
 import Navbar from '@/components/Navbar';
 

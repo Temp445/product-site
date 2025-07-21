@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
+import { Link } from '@/i18n/navigation';
 import { useLocale } from "next-intl";
 export default function ProductPage() {
   const t = useTranslations('home');
