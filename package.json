@@ -11,6 +11,7 @@
   "dependencies": {
     "@netlify/plugin-nextjs": "^5.11.6",
     "axios": "^1.10.0",
+    "cookies-next": "^6.1.0",
     "mongoose": "^8.16.4",
     "next": "15.4.1",
     "next-intl": "^4.3.4",
