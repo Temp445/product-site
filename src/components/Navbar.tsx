@@ -4,6 +4,7 @@ import { FC } from 'react';
 import { useLocale } from 'next-intl';
 import { setCookie } from 'cookies-next';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const Navbar: FC = () => {
   const currentLocale = useLocale();
@@ -22,7 +23,9 @@ const Navbar: FC = () => {
   return (
     <header className="bg-white w-full z-[20]">
       <nav className="container mx-auto flex items-center justify-between px-4 md:px-6 py-3">
-        <span className="text-xl font-bold text-blue-500 tracking-wide">TechNova</span>
+          <Link href="/" className="text-xl font-bold text-blue-500 tracking-wide">
+          TechNova
+        </Link>
 
         <div className="flex gap-4">
           {languages.map((lang) => (
