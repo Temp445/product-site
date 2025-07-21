@@ -7,7 +7,7 @@ const withNextIntl = createNextIntlPlugin({
 
 const nextConfig: NextConfig = {
   basePath: '/web-development',
-  assetPrefix: '/web-development/',
+  assetPrefix: '/web-development',
   trailingSlash: true,
 };
 
