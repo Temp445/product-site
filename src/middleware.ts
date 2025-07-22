@@ -10,27 +10,33 @@ const allowedRegions = [
 const intlMiddleware = createIntlMiddleware(routing);
 
 export function middleware(request: NextRequest) {
-  const { pathname, basePath } = request.nextUrl;
+  const { pathname, origin, basePath } = request.nextUrl;
 
+  // Match first segment of path
   const match = pathname.match(/^\/([a-zA-Z0-9_-]+)(\/|$)/);
   const pathSegment = match?.[1];
 
-  // Allow /auth routes to bypass
+  // Skip /auth routes
   if (pathSegment === 'auth') {
     return NextResponse.next();
   }
 
-  // Redirect regional path like /tn to /
+  // Redirect regional slug (e.g., /tn or /ka) to root (without showing it)
   if (pathSegment && allowedRegions.includes(pathSegment)) {
     const url = request.nextUrl.clone();
-    url.pathname = basePath || '/'; // If deployed with basePath, use it
+
+    // Remove the region part from the pathname
+    const newPath = pathname.replace(`/${pathSegment}`, '') || '/';
+
+    url.pathname = newPath;
+
     return NextResponse.redirect(url);
   }
 
-  // Fallback to intl middleware
+  // Handle locale routing (next-intl)
   return intlMiddleware(request);
 }
 
 export const config = {
-  matcher: ['/((?!api|trpc|_next|_vercel|.*\\..*).*)'], // Run middleware only for valid routes
+  matcher: ['/((?!api|trpc|_next|_vercel|.*\\..*).*)'],
 };
