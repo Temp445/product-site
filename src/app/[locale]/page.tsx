@@ -27,7 +27,7 @@ export default function ProductPage() {
 
         <div className="relative group shadow-lg rounded-xl overflow-hidden">
           <Image
-            src="/acecms/images/demo.jpeg"
+            src="/images/demo.jpeg"
             alt="Web development illustration"
             className="object-cover w-full h-96 transition-transform duration-500 group-hover:scale-105"
           />
