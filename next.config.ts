@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
   basePath: '/web-development',
   assetPrefix: '/web-development',
   trailingSlash: true,
+  images: {
+    unoptimized: true
+  }
 };
 
 // Wrap and export

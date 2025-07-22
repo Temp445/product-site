@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import { useTranslations } from "next-intl";
 import Link from 'next/link'
 import { useLocale } from "next-intl";
-import demo from "../../assets/demo.jpeg"
 import Image from "next/image";
 export default function ProductPage() {
   const t = useTranslations('home');
@@ -28,7 +27,7 @@ export default function ProductPage() {
 
         <div className="relative group shadow-lg rounded-xl overflow-hidden">
           <Image
-            src={demo}
+            src="/acecms/images/demo.jpeg"
             alt="Web development illustration"
             className="object-cover w-full h-96 transition-transform duration-500 group-hover:scale-105"
           />
