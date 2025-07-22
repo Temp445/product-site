@@ -3,40 +3,34 @@ import createIntlMiddleware from 'next-intl/middleware';
 import { routing } from './i18n/routing';
 
 const allowedRegions = [
-    'tn',  /* Tamil Nadu */
-    'ka',  /* Karnataka */
-    'mh',  /* Maharashtra */
-    'dl',  /* Delhi */
-    'ts',  /* Telangana */
-    'hr',  /* Haryana */
-    'se',   /* Singapore */
-    'uaedxb', /* UAE Dubai */
-    'uaesh', /* UAE Sharjah */
-    'uaead' /* UAE Abu Dhabi */
+  'tn', 'ka', 'mh', 'dl', 'ts', 'hr',
+  'se', 'uaedxb', 'uaesh', 'uaead'
 ];
 
 const intlMiddleware = createIntlMiddleware(routing);
 
 export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+  const { pathname, basePath } = request.nextUrl;
 
   const match = pathname.match(/^\/([a-zA-Z0-9_-]+)(\/|$)/);
   const pathSegment = match?.[1];
 
+  // Allow /auth routes to bypass
   if (pathSegment === 'auth') {
     return NextResponse.next();
   }
 
-  // Redirect /tn → / 
+  // Redirect regional path like /tn to /
   if (pathSegment && allowedRegions.includes(pathSegment)) {
     const url = request.nextUrl.clone();
-    url.pathname = '/';
+    url.pathname = basePath || '/'; // If deployed with basePath, use it
     return NextResponse.redirect(url);
   }
 
+  // Fallback to intl middleware
   return intlMiddleware(request);
 }
 
 export const config = {
-  matcher: ['/((?!api|trpc|_next|_vercel|.*\\..*).*)'],
+  matcher: ['/((?!api|trpc|_next|_vercel|.*\\..*).*)'], // Run middleware only for valid routes
 };
