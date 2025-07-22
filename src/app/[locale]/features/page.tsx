@@ -44,9 +44,9 @@ const Products = () => {
         <img src={product.image} alt={'Product Image'} className="w-full h-72 object-center rounded" />
 
          {product.link ? (
-        <Link href={`/products/${product._id}`} className="text-xl font-semibold mt-4">{translate(product.name)}</Link>
+        <Link href="#" className="text-xl font-semibold mt-4">{translate(product.name)}</Link>
          ): (
-        <Link href={`/aceppap/${locale}`} className="text-xl font-semibold mt-4">{translate(product.name)}</Link>
+        <Link href="#" className="text-xl font-semibold mt-4">{translate(product.name)}</Link>
          )}
 
       </div>
