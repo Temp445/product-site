@@ -41,7 +41,7 @@ const Products = () => {
 
       {products.map(product =>(
          <div key={product._id} className="border rounded-lg p-4 shadow-sm flex flex-col items-center ">
-        {/* <img src={product.image} alt={'Product Image'} className="w-full h-72 object-center rounded" /> */}
+        <img src={product.image} alt={'Product Image'} className="w-full h-72 object-center rounded" />
 
          {product.link ? (
         <Link href="#" className="text-xl font-semibold mt-4">{translate(product.name)}</Link>
